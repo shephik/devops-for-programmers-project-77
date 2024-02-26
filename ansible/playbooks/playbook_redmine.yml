@@ -1,0 +1,34 @@
+---
+
+- hosts: all
+  gather_facts: no
+
+  tasks:
+
+    - name: copy .env file
+      ansible.builtin.template:
+        src: ../../.env.example
+        dest: .env
+        follow: yes 
+      become: yes  
+      tags: files
+
+    - name: copy docker-compose file
+      ansible.builtin.template:
+        src: ../../docker-compose.yml
+        dest: docker-compose.yml
+        follow: yes 
+      become: yes  
+      tags: files
+
+    - name: stop docker container redmine
+      ansible.builtin.command: 'docker-compose stop' 
+      become: yes
+
+    - name: build docker container redmine
+      ansible.builtin.command: 'docker-compose build' 
+      become: yes
+
+    - name: up docker container redmine
+      ansible.builtin.command: 'docker-compose up -d' 
+      become: yes     

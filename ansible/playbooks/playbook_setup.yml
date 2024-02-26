@@ -1,0 +1,40 @@
+---
+
+- hosts: all
+
+  vars:
+    pip_install_packages: 
+      - name: docker
+        state: absent   
+
+  pre_tasks:
+
+    - name: update apt cache 
+      ansible.builtin.apt:
+        name: apt
+        update_cache: yes
+      become: yes
+
+    - name: install ansible
+      ansible.builtin.apt:
+        name: ansible
+        state: present
+      become: yes  
+
+    - name: install docker-compose
+      ansible.builtin.apt:
+        name: docker-compose
+        state: present
+      become: yes    
+
+    - name: copy requirements.yml to server
+      ansible.builtin.template:
+        src: ../requirements.yml
+        dest: "{{ ansible_user_dir }}/requirements.yml"
+      become: yes  
+    - name: execute ansible install roles
+      ansible.builtin.shell: ansible-galaxy install -r {{ ansible_user_dir }}/requirements.yml
+
+  roles:
+    - name: geerlingguy.pip
+      become: yes        

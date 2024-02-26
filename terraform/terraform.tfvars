@@ -1,1 +1,1 @@
-default = file("~/.ssh/id_rsa")
+pvt_key = "~/.ssh/id_rsa"

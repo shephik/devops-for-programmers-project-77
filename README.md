@@ -2,14 +2,15 @@
 [![Actions Status](https://github.com/shephik/devops-for-programmers-project-77/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/shephik/devops-for-programmers-project-77/actions)
 
 
+Страница приложения
+`https://shephik.ru/`
+
+
 Форматировать файлы terraform \
-`make fmt` \
+`make tf-fmt` \
 
-Зашифровать файл с секретами terraform \
-`ansible-vault encrypt terraform/secrets.tfvars --vault-password-file .vaultpass` \
-
-Инициация terraform \
-`make init` \
+Инициацировать terraform \
+`make tf-init` \
 
 Выполнить terraform \
-`make apply` \
+`make tf-apply` \

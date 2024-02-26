@@ -1,0 +1,16 @@
+---
+
+- hosts: webservers
+  gather_facts: no
+
+  collections:
+    - community.general 
+
+  roles:
+    - name: DataDog.datadog
+      become: yes   
+
+  vars:
+      datadog_api_key: "{{ DATADOG_API_KEY }}" 
+
+      

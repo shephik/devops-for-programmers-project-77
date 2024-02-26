@@ -1,5 +1,5 @@
 variable "do_token" {
-  description = "DigitalOcean API"
+  description = "DigitalOcean API token"
   type        = string
   sensitive   = true
 }

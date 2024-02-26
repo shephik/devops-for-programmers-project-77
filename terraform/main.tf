@@ -10,20 +10,14 @@ resource "digitalocean_droplet" "droplet1" {
     host        = self.ipv4_address
     user        = "root"
     type        = "ssh"
-    private_key = var.pvt_key
+    private_key = file(var.pvt_key)
     timeout     = "2m"
   }
   provisioner "remote-exec" {
     inline = [
-      <<EOT
-curl -fsSL https://get.docker.com -o get-docker.sh \
-  sh get-docker.sh 
+<<EOT
+apt -y install docker.io
 EOT
-    ]
-  }
-  provisioner "remote-exec" {
-    inline = [
-      "sudo docker run -d -p 0.0.0.0:80:3000 -e DB_TYPE=postgres -e DB_NAME=wiki -e DB_HOST=db -e DB_PORT=5432 -e DB_USER=kate -e DB_PASS=password ghcr.io/requarks/wiki:2.5",
     ]
   }
 }
@@ -40,20 +34,14 @@ resource "digitalocean_droplet" "droplet2" {
     host        = self.ipv4_address
     user        = "root"
     type        = "ssh"
-    private_key = var.pvt_key
+    private_key = file(var.pvt_key)
     timeout     = "2m"
   }
   provisioner "remote-exec" {
     inline = [
-      <<EOT
-curl -fsSL https://get.docker.com -o get-docker.sh \
-  sh get-docker.sh 
+<<EOT
+apt -y install docker.io
 EOT
-    ]
-  }
-  provisioner "remote-exec" {
-    inline = [
-      "sudo docker run -d -p 0.0.0.0:80:3000 -e DB_TYPE=postgres -e DB_NAME=wiki -e DB_HOST=db -e DB_PORT=5432 -e DB_USER=kate -e DB_PASS=password ghcr.io/requarks/wiki:2.5",
     ]
   }
 }
