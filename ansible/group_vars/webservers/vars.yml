@@ -1,2 +1,1 @@
-# redmine_db_password: "{{ vault_db_password }}"
-# DATADOG_API_KEY: "{{ vault_dd_api_key }}"
+DATADOG_API_KEY: "{{ vault_dd_api_key }}"

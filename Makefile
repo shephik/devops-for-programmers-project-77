@@ -8,13 +8,13 @@ tf-apply:
 	cd terraform && terraform apply 
 
 ansible-setup:
-	ansible-playbook --vault-password-file .vaultpass ansible/playbooks/playbook_setup.yml -i inventory.ini
+	ansible-playbook --vault-password-file .vaultpass ansible/playbooks/playbook_setup.yml -i ansible/inventory.ini
 
 ansible-redmine:
-	ansible-playbook --vault-password-file .vaultpass ansible/playbooks/playbook_redmine.yml -i inventory.ini
+	ansible-playbook --vault-password-file .vaultpass ansible/playbooks/playbook_redmine.yml -i ansible/inventory.ini
 
-# ansible-datadog:
-# 	ansible-playbook --vault-password-file .vaultpass ansible/playbooks/playbook_datadog.yml -i inventory.ini	
+ansible-datadog:
+	ansible-playbook --vault-password-file .vaultpass ansible/playbooks/playbook_datadog.yml -i ansible/inventory.ini	
 
 
 vault-terraform:

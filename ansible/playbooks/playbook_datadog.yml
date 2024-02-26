@@ -13,4 +13,11 @@
   vars:
       datadog_api_key: "{{ DATADOG_API_KEY }}" 
 
-      
+
+# datadog не прописывает site: datadoghq.eu в основной файл настроек
+# нужно зайти на сервер, добавить строку в /etc/datadog-agent/datadog.yaml
+# sudo service datadog-agent restart
+
+
+# Чтобы создать монитор Network Check, нужно добавить конфиг для HTTP Check
+# Edit the http_check.d/conf.yaml file, in the /etc/datadog-agent/conf.d/ folder

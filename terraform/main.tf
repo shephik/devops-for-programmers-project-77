@@ -15,7 +15,7 @@ resource "digitalocean_droplet" "droplet1" {
   }
   provisioner "remote-exec" {
     inline = [
-<<EOT
+      <<EOT
 apt -y install docker.io
 EOT
     ]
@@ -39,7 +39,7 @@ resource "digitalocean_droplet" "droplet2" {
   }
   provisioner "remote-exec" {
     inline = [
-<<EOT
+      <<EOT
 apt -y install docker.io
 EOT
     ]
