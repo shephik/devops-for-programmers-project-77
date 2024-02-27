@@ -2,8 +2,7 @@
 [![Actions Status](https://github.com/shephik/devops-for-programmers-project-77/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/shephik/devops-for-programmers-project-77/actions)
 
 
-Страница приложения [https://shephik.ru][1]/
-[1]: https://shephik.ru
+Страница приложения [https://shephik.ru](https://shephik.ru)/
 
 
 Форматировать файлы terraform \
