@@ -4,5 +4,5 @@
 - name: Import playbook_redmine
   ansible.builtin.import_playbook: playbooks/playbook_redmine.yml
 
-# - name: Import playbook_datadog
-#   ansible.builtin.import_playbook: playbooks/playbook_datadog.yml  
+- name: Import playbook_datadog
+  ansible.builtin.import_playbook: playbooks/playbook_datadog.yml  
