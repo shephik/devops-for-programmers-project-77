@@ -21,10 +21,10 @@ variable "datadog_api_key" {
   sensitive   = true
 }
 
-# variable "datadog_app_key" {
-#   description = "DataDog APP key"
-#   type        = string
-# }
+variable "datadog_app_key" {
+  description = "DataDog APP key"
+  type        = string
+}
 
 variable "my_site" {
   description = "My site address"
