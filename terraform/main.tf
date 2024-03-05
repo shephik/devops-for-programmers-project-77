@@ -38,7 +38,7 @@ resource "local_file" "hosts_cfg" {
     {
       ip_addrs = {
         "host1": digitalocean_droplet.droplet1.ipv4_address, 
-        "host2": digitalocean_droplet.droplet2.ipv4_address
+        "host2": digitalocean_droplet.droplet2.ipv4_address,
       }
     }
   )
