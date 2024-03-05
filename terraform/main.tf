@@ -33,12 +33,13 @@ resource "digitalocean_droplet" "droplet2" {
 }
 
 # generate inventory file for Ansible
-resource "local_file" "hosts_cfg" {
-  content = templatefile("${path.module}/templates/hosts.tftpl",
+resource "local_file" "hosts_inventory" {
+  content = templatefile(
+    "${path.module}/templates/hosts.tftpl",
     {
       ip_addrs = {
-        "host1": digitalocean_droplet.droplet1.ipv4_address, 
-        "host2": digitalocean_droplet.droplet2.ipv4_address,
+        "host1" = digitalocean_droplet.droplet1.ipv4_address
+        "host2" = digitalocean_droplet.droplet2.ipv4_address
       }
     }
   )
