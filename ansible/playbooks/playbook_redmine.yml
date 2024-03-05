@@ -5,13 +5,13 @@
 
   tasks:
 
-    - name: copy .env file
-      ansible.builtin.template:
-        src: ../../.env.example
-        dest: .env
-        follow: yes 
-      become: yes  
-      tags: files
+    # - name: copy .env file
+    #   ansible.builtin.template:
+    #     src: ../../.env.example
+    #     dest: .env
+    #     follow: yes 
+    #   become: yes  
+    #   tags: files
 
     - name: copy docker-compose file
       ansible.builtin.template:

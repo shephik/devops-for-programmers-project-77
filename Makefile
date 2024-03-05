@@ -1,6 +1,9 @@
 tf-fmt: 
 	cd terraform && terraform fmt
 
+ansible-generate-tf-vars:
+	ansible-playbook --vault-password-file .vaultpass ansible/terraform.yml
+
 tf-init: 
 	cd terraform && terraform init
 
@@ -21,4 +24,4 @@ vault-terraform:
 	ansible-vault encrypt terraform/secret.tfvars --vault-password-file .vaultpass
 
 vault-ansible:
-	ansible-vault encrypt ansible/group_vars/webservers/vault.yml --vault-password-file .vaultpass
+	ansible-vault encrypt ansible/group_vars/all/vault.yml --vault-password-file .vaultpass

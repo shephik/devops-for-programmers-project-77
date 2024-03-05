@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - template:
+        src: terraform.tfvars.j2
+        dest: '../terraform/terraform.tfvars'
+    - template:
+        src: secrets.tfvars.j2
+        dest: '../terraform/secrets.tfvars'

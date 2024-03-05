@@ -1,0 +1,4 @@
+[webservers]
+%{ for host, addr in ip_addrs ~}
+${host} ansible_host=${addr} ansible_user=root
+%{ endfor ~}

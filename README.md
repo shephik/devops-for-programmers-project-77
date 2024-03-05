@@ -5,17 +5,14 @@
 Страница приложения [https://shephik.ru](https://shephik.ru)/
 
 
-Форматировать файлы terraform \
-`make tf-fmt` \
+Сгенерировать файлы переменных для terraform \
+`make ansible-generate-tf-vars` \
 
 Инициировать terraform \
 `make tf-init` \
 
 Выполнить terraform \
 `make tf-apply` \
-
-
-Добавить хосты в inventory.ini для ansible тасков \
 
 Настройка серверов \
 `make ansible-setup` \

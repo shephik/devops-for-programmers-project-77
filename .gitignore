@@ -1,5 +1,6 @@
 .terraform
+*.tfvars
 *.tfstate.*
 *.tfstate
 .vaultpass
-secrets.tfvars
+inventory.ini

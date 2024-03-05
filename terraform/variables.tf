@@ -40,3 +40,18 @@ variable "instance_name" {
   description = "My site instance name"
   type        = string
 }
+
+variable "droplet1_name" {
+  description = "Droplet 1 name"
+  type        = string
+}
+
+variable "droplet2_name" {
+  description = "Droplet 2 name"
+  type        = string
+}
+
+variable "balancer_name" {
+  description = "Load balancer name"
+  type        = string
+}

@@ -1,0 +1,16 @@
+ansible_ssh_user: root
+ansible_distribution: 'Debian'
+ansible_distribution_major_version: 12
+
+datadog_api_key: "{{ vault_dd_api_key }}"
+datadog_app_key: "05676b6e0bdf9193576c10232152579bac21a7e5"
+
+pvt_key: "~/.ssh/id_rsa"
+datadog_api_url: "https://app.datadoghq.eu/api/v1/validate"
+my_site: "http://shephik.ru"
+my_site_https: "https://shephik.ru"
+instance_name: "shephik.ru"
+
+droplet1_name: "devops-1"
+droplet2_name: "devops-2"
+balancer_name: "devops-balancer"

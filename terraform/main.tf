@@ -1,6 +1,6 @@
 resource "digitalocean_droplet" "droplet1" {
   image  = "ubuntu-20-04-x64"
-  name   = "droplet-1"
+  name   = var.droplet1_name
   region = "fra1"
   size   = "s-1vcpu-1gb"
   ssh_keys = [
@@ -12,19 +12,12 @@ resource "digitalocean_droplet" "droplet1" {
     type        = "ssh"
     private_key = file(var.pvt_key)
     timeout     = "2m"
-  }
-  provisioner "remote-exec" {
-    inline = [
-      <<EOT
-apt -y install docker.io
-EOT
-    ]
   }
 }
 
 resource "digitalocean_droplet" "droplet2" {
   image  = "ubuntu-20-04-x64"
-  name   = "droplet-2"
+  name   = var.droplet2_name
   region = "fra1"
   size   = "s-1vcpu-1gb"
   ssh_keys = [
@@ -37,17 +30,25 @@ resource "digitalocean_droplet" "droplet2" {
     private_key = file(var.pvt_key)
     timeout     = "2m"
   }
-  provisioner "remote-exec" {
-    inline = [
-      <<EOT
-apt -y install docker.io
-EOT
-    ]
-  }
+}
+
+# generate inventory file for Ansible
+resource "local_file" "hosts_cfg" {
+  content = templatefile("templates/hosts.tftpl",
+    {
+      ip_addrs = {
+        "host1": digitalocean_droplet.droplet1.ipv4_address, 
+        "host2": digitalocean_droplet.droplet2.ipv4_address
+      }
+    }
+  )
+  filename = "../ansible/inventory.ini"
+
+  depends_on = [digitalocean_droplet.droplet1, digitalocean_droplet.droplet2]
 }
 
 resource "digitalocean_loadbalancer" "balancer" {
-  name   = "loadbalancer-1"
+  name   = var.balancer_name
   region = "fra1"
 
   forwarding_rule {
